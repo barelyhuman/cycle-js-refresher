@@ -45,6 +45,7 @@ function render$(state$) {
               id="prev-input"
               class={clsx("border border-neutral-200 rounded-md")}
               placeholder="ex: 10"
+              type="number"
               value={prevRep}
             />
           </div>
