@@ -5,5 +5,13 @@ import babel from "vite-plugin-babel";
 // https://vitejs.dev/config/
 export default defineConfig({
   base: process.env.VITE_BASE_URL || "/",
-  plugins: [babel(), preact()],
+  esbuild: {
+    jsx: "transform",
+    jsxFactory: "jsx",
+    jsxFragment: "Fragment",
+  },
+  plugins: [
+    // babel(),
+    // preact()
+  ],
 });

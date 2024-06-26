@@ -1,9 +1,10 @@
-import "./index.css";
+import { jsx, Fragment } from "snabbdom";
+
 import "./index.css";
 import xs from "xstream";
 import { run } from "@cycle/run";
 import { makeDOMDriver } from "@cycle/dom";
-import Snabbdom from "snabbdom-pragma";
+import { clsx } from "./lib/class-compat";
 
 /**
  * @param {object} sources
@@ -33,26 +34,26 @@ function nextEffort$(sources) {
 function render$(state$) {
   return state$.map(({ prevRep, nextEffort, nextRepCount }) => {
     return (
-      <div className="flex flex-col gap-10 min-w-[300px]">
-        <form className="w-full flex flex-col gap-3">
-          <div className="flex flex-col gap-1">
-            <label for="" className="font-semibold">
+      <div class={clsx("flex flex-col gap-10 min-w-[300px]")}>
+        <form class={clsx("w-full flex flex-col gap-3")}>
+          <div class={clsx("flex flex-col gap-1")}>
+            <label for="" class={clsx("font-semibold")}>
               Previous Rep Count
             </label>
             <input
               name="prev"
               id="prev-input"
-              className="border border-neutral-200 rounded-md"
+              class={clsx("border border-neutral-200 rounded-md")}
               placeholder="ex: 10"
               value={prevRep}
             />
           </div>
-          <div className="flex flex-col gap-1">
-            <label for="" className="font-semibold">
+          <div class={clsx("flex flex-col gap-1")}>
+            <label for="" class={clsx("font-semibold")}>
               Next Rep Effort <span>{nextEffort}%</span>
             </label>
             <input
-              className="border border-neutral-200 rounded-md"
+              class={clsx("border border-neutral-200 rounded-md")}
               placeholder="ex: 10"
               id="effort-input"
               type="number"
@@ -62,9 +63,9 @@ function render$(state$) {
             />
           </div>
         </form>
-        <p className="text-neutral-600">
+        <p class={clsx("text-neutral-600")}>
           Your next workout should be for:{" "}
-          <span className="font-semibold text-neutral-800">
+          <span class={clsx("font-semibold text-neutral-800")}>
             {nextRepCount} reps
           </span>
         </p>
