@@ -31,13 +31,18 @@ function nextEffort$(sources) {
  */
 function render$(state$) {
   return state$.map(({ prevRep, nextEffort, nextRepCount }) => {
-    // return <div id="red">hello</div>
     return (
       <div class={clsx("flex flex-col gap-10 min-w-[300px]")}>
+        <div>
+          <p class={clsx("text-neutral-400 text-center")}>Next Set Reps</p>
+          <h1 class={clsx("text-3xl font-semibold text-center")}>
+            {nextRepCount}
+          </h1>
+        </div>
         <form class={clsx("w-full flex flex-col gap-3")}>
           <div class={clsx("flex flex-col gap-1")}>
             <label for="" class={clsx("font-semibold")}>
-              Previous Rep Count
+              Previous Set Rep Count
             </label>
             <input
               name="prev"
@@ -50,7 +55,7 @@ function render$(state$) {
           </div>
           <div class={clsx("flex flex-col gap-1")}>
             <label for="" class={clsx("font-semibold")}>
-              Next Rep Effort <span>{nextEffort}%</span>
+              Effort <span>{nextEffort}%</span>
             </label>
             <input
               class={clsx("border border-neutral-200 rounded-md")}
@@ -63,12 +68,6 @@ function render$(state$) {
             />
           </div>
         </form>
-        <p class={clsx("text-neutral-600")}>
-          Your next workout should be for:{" "}
-          <span class={clsx("font-semibold text-neutral-800")}>
-            {nextRepCount} reps
-          </span>
-        </p>
       </div>
     );
   });

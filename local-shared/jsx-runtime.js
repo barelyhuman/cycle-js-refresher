@@ -8,8 +8,6 @@ import { Fragment, h } from "snabbdom";
 export const IS_NON_DIMENSIONAL =
   /acit|ex(?:s|g|n|p|$)|rph|grid|ows|mnc|ntw|ine[ch]|zoo|^ord|itera/i;
 
-
-
 const ENCODED_ENTITIES = /["&<]/;
 
 /** @param {string} str */
@@ -50,19 +48,23 @@ export function encodeEntities(str) {
 const isArray = Array.isArray;
 function createVNode(type, props, key, isStaticChildren, __source, __self) {
   if (!props) props = {};
+  let sbProps = {};
 
-  let children = [];
-  if (props.children) {
-    children = props.children;
-    delete props.children;
-  }
+  const { children, class: classProps, ...restProps } = props;
 
-  if (props.class) {
-    props.className = Object.keys(props.class).join(" ");
-    delete props.class;
-  }
+  sbProps.className = Object.keys(classProps ?? {}).join(" ");
 
-  const vnode = h(type, { props, key }, children);
+  const vnode = h(
+    type,
+    {
+      props: {
+        ...sbProps,
+        ...restProps,
+      },
+      key,
+    },
+    children
+  );
   vnode.__source = __source;
   vnode.__self = __self;
   return vnode;
