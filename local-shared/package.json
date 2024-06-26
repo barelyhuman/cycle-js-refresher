@@ -1,0 +1,13 @@
+{
+  "name": "local-shared",
+  "version": "0.0.0",
+  "type": "module",
+  "exports": {
+    "./jsx-runtime": "./jsx-runtime.js",
+    "./jsx-dev-runtime": "./jsx-runtime.js",
+    "./shared": "./shared.js"
+  },
+  "dependencies": {
+    "snabbdom": "^3.6.2"
+  }
+}

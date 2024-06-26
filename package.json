@@ -12,9 +12,11 @@
     "@cycle/dom": "^23.1.0",
     "@cycle/run": "^5.7.0",
     "snabbdom": "^3.6.2",
-    "xstream": "^11.14.0"
+    "xstream": "^11.14.0",
+    "local-shared": "workspace:*"
   },
   "devDependencies": {
+    "@babel/plugin-transform-react-jsx": "*",
     "@preact/preset-vite": "^2.8.2",
     "@tailwindcss/forms": "^0.5.7",
     "autoprefixer": "^10.4.19",

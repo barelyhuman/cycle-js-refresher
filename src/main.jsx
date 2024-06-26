@@ -1,5 +1,3 @@
-import { jsx, Fragment } from "snabbdom";
-
 import "./index.css";
 import xs from "xstream";
 import { run } from "@cycle/run";
@@ -33,6 +31,7 @@ function nextEffort$(sources) {
  */
 function render$(state$) {
   return state$.map(({ prevRep, nextEffort, nextRepCount }) => {
+    // return <div id="red">hello</div>
     return (
       <div class={clsx("flex flex-col gap-10 min-w-[300px]")}>
         <form class={clsx("w-full flex flex-col gap-3")}>
